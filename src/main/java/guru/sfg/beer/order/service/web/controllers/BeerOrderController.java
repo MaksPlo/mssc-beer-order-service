@@ -52,7 +52,9 @@ public class BeerOrderController {
             pageSize = DEFAULT_PAGE_SIZE;
         }
 
-        return beerOrderService.listOrders(customerId, PageRequest.of(pageNumber, pageSize));
+        BeerOrderPagedList beerOrderDtos = beerOrderService.listOrders(customerId, PageRequest.of(pageNumber, pageSize));
+
+        return beerOrderDtos;
     }
 
     @PostMapping("orders")
